@@ -1,0 +1,22 @@
+# Fashion garment evaluation labels — JSONL format, one entry per line.
+# Lines starting with # are comments.
+#
+# Replace each "image" filename with an actual file in eval/sample_images/.
+# You can download free fashion images from https://www.pexels.com/search/fashion/
+# and rename them to match the filenames here.
+#
+# Fill in "expected" values by manually inspecting each image.
+# Only include fields you want to evaluate — omit anything uncertain.
+#
+# Run: python eval/run_eval.py
+
+{"image": "dress_floral_paris.jpg", "expected": {"garment_type": "dress", "style": "casual", "material": "cotton", "pattern": "floral", "season": "spring/summer", "occasion": "casual everyday", "consumer_profile": "young urban professional", "continent": "Europe", "country": "France", "city": "Paris"}}
+{"image": "blazer_camel_milan.jpg", "expected": {"garment_type": "blazer", "style": "business casual", "material": "wool blend", "pattern": "solid", "season": "fall/winter", "occasion": "business casual", "continent": "Europe", "country": "Italy", "city": "Milan"}}
+{"image": "denim_jacket_nyc.jpg", "expected": {"garment_type": "jacket", "style": "streetwear", "material": "denim", "pattern": "solid", "season": "all-season", "occasion": "casual everyday", "continent": "North America", "country": "USA", "city": "New York"}}
+{"image": "silk_blouse_tokyo.jpg", "expected": {"garment_type": "blouse", "style": "minimalist", "material": "silk", "pattern": "solid", "season": "all-season", "occasion": "business casual", "continent": "Asia", "country": "Japan", "city": "Tokyo"}}
+{"image": "linen_skirt_marrakech.jpg", "expected": {"garment_type": "skirt", "style": "bohemian", "material": "linen", "pattern": "geometric", "season": "spring/summer", "occasion": "resort/vacation", "continent": "Africa", "country": "Morocco", "city": "Marrakech"}}
+{"image": "leather_trousers_berlin.jpg", "expected": {"garment_type": "trousers", "style": "avant-garde", "material": "leather", "pattern": "solid", "season": "fall/winter", "occasion": "evening/cocktail", "continent": "Europe", "country": "Germany", "city": "Berlin"}}
+{"image": "knitwear_sweater_edinburgh.jpg", "expected": {"garment_type": "sweater", "style": "casual", "material": "wool", "pattern": "stripes", "season": "fall/winter", "occasion": "casual everyday", "continent": "Europe", "country": "United Kingdom"}}
+{"image": "printed_jumpsuit_rio.jpg", "expected": {"garment_type": "jumpsuit", "style": "maximalist", "material": "synthetic", "pattern": "abstract", "season": "spring/summer", "occasion": "resort/vacation", "continent": "South America", "country": "Brazil", "city": "Rio de Janeiro"}}
+{"image": "tailored_coat_london.jpg", "expected": {"garment_type": "coat", "style": "formal", "material": "wool", "pattern": "solid", "season": "fall/winter", "occasion": "business casual", "continent": "Europe", "country": "United Kingdom", "city": "London"}}
+{"image": "cargo_shorts_sydney.jpg", "expected": {"garment_type": "shorts", "style": "casual", "material": "cotton", "pattern": "solid", "season": "spring/summer", "occasion": "outdoor/adventure", "continent": "Oceania", "country": "Australia", "city": "Sydney"}}

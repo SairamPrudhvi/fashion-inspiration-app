@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Inspiration Library</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/components.css">
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────────────── -->
+  <header class="app-header">
+    <div class="logo">
+      <span class="logo-icon">◈</span>
+      Fashion Inspiration Library
+    </div>
+
+    <div class="search-wrap">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search by style, material, description… (⌘K)"
+        autocomplete="off"
+        spellcheck="false">
+      <button id="search-clear" class="hidden" title="Clear search">✕</button>
+    </div>
+
+    <div class="header-actions">
+      <button id="random-btn"  class="btn-secondary" title="Open a random image from your library">Surprise me</button>
+      <button id="export-btn"  class="btn-secondary" title="Download full library as CSV">Export CSV</button>
+      <button id="upload-btn"  class="btn-primary">+ Upload</button>
+    </div>
+  </header>
+
+  <!-- ── Body ────────────────────────────────────────────────────────────── -->
+  <div class="app-body">
+
+    <!-- Filters sidebar -->
+    <aside class="filters-panel">
+      <div class="filters-header">
+        <h3>Filter</h3>
+        <button id="clear-filters-btn" class="link-btn">Clear all</button>
+      </div>
+      <div id="filters-container">
+        <div class="filter-loading">Loading filters…</div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content-area">
+      <div class="content-header">
+        <span id="result-count" class="result-count">0 images</span>
+        <div class="active-filter-tags" id="active-filter-tags"></div>
+      </div>
+      <div id="image-grid">
+        <div class="empty-state">
+          <div class="empty-icon">◈</div>
+          <h2>Your inspiration library is empty</h2>
+          <p>
+            Upload garment photos and the AI will automatically tag each image with type,
+            style, material, colour palette, occasion, and more — so you can search and
+            filter your whole collection in seconds.
+          </p>
+          <button class="btn-primary" onclick="openUploadModal()">Upload your first image</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ── Upload modal ─────────────────────────────────────────────────────── -->
+  <div id="upload-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Upload Garments</h2>
+        <button class="modal-close" onclick="closeUploadModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="drop-zone" class="drop-zone">
+          <div class="drop-icon">↑</div>
+          <p>Drop images here or <label for="file-input" class="file-label">browse files</label></p>
+          <p class="drop-hint">JPG · PNG · WEBP · GIF — single or batch</p>
+          <input type="file" id="file-input" multiple accept="image/*" class="hidden">
+        </div>
+        <div class="upload-meta" style="margin-top:12px">
+          <input type="text" id="designer-input" placeholder="Your name (optional — used as the 'Designer' filter)">
+        </div>
+        <div id="upload-queue" class="upload-queue hidden"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeUploadModal()">Cancel</button>
+        <button id="start-upload-btn" class="btn-primary" disabled>Upload &amp; Classify</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Detail modal ─────────────────────────────────────────────────────── -->
+  <div id="detail-modal" class="modal-overlay hidden">
+    <div class="modal modal-wide">
+      <div class="modal-header" style="border-bottom:none;padding-bottom:8px">
+        <span></span>
+        <button class="modal-close" onclick="closeDetailModal()">✕</button>
+      </div>
+      <div id="detail-content" class="detail-content">
+        <!-- Populated by detail.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts loaded in dependency order (no build step — plain globals) -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/colors.js"></script>
+  <script src="/static/js/gallery.js"></script>
+  <script src="/static/js/filters.js"></script>
+  <script src="/static/js/detail.js"></script>
+  <script src="/static/js/upload.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
